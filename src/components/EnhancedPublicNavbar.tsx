@@ -1,5 +1,7 @@
 import { motion, AnimatePresence } from "motion/react";
-import { Zap, User, LogOut, LayoutDashboard, Settings, ChevronDown, Menu, X } from "lucide-react";
+import { Zap, User, LogOut, LayoutDashboard, Settings, ChevronDown, Menu, X, ArrowLeft } from "lucide-react";
+// Use the bundled logo asset so the app doesn't require a file placed in public/
+import logo from "../assets/logo.png";
 import { Button } from "./ui/button";
 import { useState } from "react";
 import {
@@ -38,16 +40,33 @@ export function EnhancedPublicNavbar({
     >
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <button onClick={() => onNavigate("home")} className="flex items-center gap-2 group">
-            <motion.div 
-              whileHover={{ rotate: 360 }}
-              transition={{ duration: 0.5 }}
-              className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center"
+          <div className="flex items-center gap-3">
+            {/* Back button - goes to previous history or home as fallback */}
+            <button
+              onClick={() => {
+                if (window.history.length > 1) {
+                  window.history.back();
+                } else {
+                  onNavigate("home");
+                }
+              }}
+              aria-label="Go back"
+              className="p-2 rounded-md hover:bg-muted transition-colors hidden sm:inline-flex"
             >
-              <Zap className="w-6 h-6 text-white" />
-            </motion.div>
-            <span className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors">KWICK</span>
-          </button>
+              <ArrowLeft className="w-5 h-5 text-foreground" />
+            </button>
+
+            {/* Logo as home button (bundled asset) */}
+            <button onClick={() => onNavigate("home")} className="flex items-center gap-2 group">
+              <motion.img
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.5 }}
+                src={logo}
+                alt="KWICK"
+                className="h-10 object-contain"
+              />
+            </button>
+          </div>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-6">

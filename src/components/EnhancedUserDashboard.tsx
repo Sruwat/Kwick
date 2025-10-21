@@ -115,7 +115,7 @@ export const EnhancedUserDashboard: React.FC<EnhancedUserDashboardProps> = ({ on
             <div className="flex items-start justify-between mb-4">
               <div>
                 <p className="text-sm text-gray-600 mb-1">Current Plan</p>
-                <p className="text-xl text-black">Monthly Pro</p>
+                <p className="text-xl text-black"></p>
               </div>
               <div className="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
                 <CheckCircle className="w-5 h-5 text-red-500" />
@@ -132,7 +132,7 @@ export const EnhancedUserDashboard: React.FC<EnhancedUserDashboardProps> = ({ on
             <div className="flex items-start justify-between mb-4">
               <div>
                 <p className="text-sm text-gray-600 mb-1">Vehicle No.</p>
-                <p className="text-xl text-black">DL 8C AB 1234</p>
+                <p className="text-xl text-black"></p>
               </div>
               <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
                 <Car className="w-5 h-5 text-blue-500" />
@@ -148,7 +148,7 @@ export const EnhancedUserDashboard: React.FC<EnhancedUserDashboardProps> = ({ on
             <div className="flex items-start justify-between mb-4">
               <div>
                 <p className="text-sm text-gray-600 mb-1">Battery Level</p>
-                <p className="text-xl text-black">78%</p>
+                <p className="text-xl text-black"></p>
               </div>
               <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
                 <Battery className="w-5 h-5 text-green-500" />
@@ -164,7 +164,7 @@ export const EnhancedUserDashboard: React.FC<EnhancedUserDashboardProps> = ({ on
             <div className="flex items-start justify-between mb-4">
               <div>
                 <p className="text-sm text-gray-600 mb-1">KYC Status</p>
-                <p className="text-xl text-black">Verified</p>
+                <p className="text-xl text-black">Pending</p>
               </div>
               <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
                 <CheckCircle className="w-5 h-5 text-green-500" />

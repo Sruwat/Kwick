@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState } from 'react';
+import type { ReactNode } from 'react';
 
 export interface BlogPost {
   id: string;
@@ -23,7 +24,8 @@ interface BlogContextType {
   getPublishedBlogs: () => BlogPost[];
 }
 
-const BlogContext = createContext<BlogContextType | undefined>(undefined);
+// createContext without generic on untyped call can cause TS2347 in some configs; use a cast instead
+const BlogContext = createContext(undefined as unknown as BlogContextType | undefined);
 
 const initialBlogs: BlogPost[] = [
   {
@@ -551,7 +553,7 @@ Transparency is key! Let's break down everything you need to know about KWICK re
 
 ## Security Deposit
 
-- **Amount**: ₹5,000
+- **Amount**: ₹2,000
 - **Refundable**: 100%
 - **Refund Time**: 7 working days after return
 - **Deductions**: Only for damages
@@ -681,8 +683,9 @@ A: No lock-in for monthly plans
   },
 ];
 
-export const BlogProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [blogs, setBlogs] = useState<BlogPost[]>(initialBlogs);
+export const BlogProvider = (props: any) => {
+  const { children } = props;
+  const [blogs, setBlogs] = useState(initialBlogs as BlogPost[]);
 
   const addBlog = (blog: BlogPost) => {
     setBlogs([...blogs, blog]);

@@ -21,14 +21,10 @@ interface EnhancedVehiclesPageProps {
   onNavigate: (page: string) => void;
 }
 
-const VEHICLE_IMAGES = [
-  "https://images.unsplash.com/photo-1583322319396-08178ea4f8b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyZWQlMjBlbGVjdHJpYyUyMHNjb290ZXIlMjBtb2Rlcm58ZW58MXx8fHwxNzYwNDIzNDE3fDA&ixlib=rb-4.1.0&q=80&w=1080",
-  "https://images.unsplash.com/photo-1708037227099-64249d177529?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbGVjdHJpYyUyMGJpa2UlMjBkZWxpdmVyeSUyMHZlaGljbGV8ZW58MXx8fHwxNzYwNDIzNDE3fDA&ixlib=rb-4.1.0&q=80&w=1080",
-  "https://images.unsplash.com/photo-1696955588013-090825de5adb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzbGVlayUyMGVsZWN0cmljJTIwbW90b3JjeWNsZXxlbnwxfHx8fDE3NjA0MjM0MTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-  "https://images.unsplash.com/photo-1605795385071-acc44231ed0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbGVjdHJpYyUyMHNjb290ZXIlMjBkZWxpdmVyeXxlbnwxfHx8fDE3NjA0MjA2OTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
-  "https://images.unsplash.com/photo-1583322319396-08178ea4f8b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyZWQlMjBlbGVjdHJpYyUyMHNjb290ZXIlMjBtb2Rlcm58ZW58MXx8fHwxNzYwNDIzNDE3fDA&ixlib=rb-4.1.0&q=80&w=1080",
-  "https://images.unsplash.com/photo-1742940796376-8f34cb25be44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBlbGVjdHJpYyUyMHZlaGljbGV8ZW58MXx8fHwxNzYwMzQ4MjA5fDA&ixlib=rb-4.1.0&q=80&w=1080"
-];
+import vehicleImg from "../assets/vehicle.png";
+
+// Use multiple copies of the red vehicle image so the thumbnail strip shows the same vehicle repeatedly
+const VEHICLE_IMAGES = new Array(5).fill(vehicleImg);
 
 export function EnhancedVehiclesPage({ 
   onNavigate
@@ -75,24 +71,43 @@ export function EnhancedVehiclesPage({
                 </div>
 
                 {/* Thumbnail Gallery */}
-                <div className="grid grid-cols-5 gap-2">
+                <div className="flex gap-2 items-center">
                   {VEHICLE_IMAGES.map((img, index) => (
                     <motion.button
                       key={index}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={() => setSelectedImage(index)}
-                      className={`relative rounded-lg overflow-hidden aspect-video ${
+                      className={`relative rounded-lg overflow-hidden w-20 h-14 flex-shrink-0 ${
                         selectedImage === index ? "ring-2 ring-primary" : ""
                       }`}
                     >
                       <ImageWithFallback
                         src={img}
                         alt={`KWICK view ${index + 1}`}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-contain"
                       />
                     </motion.button>
                   ))}
+                </div>
+                {/* Small full-vehicle preview with price */}
+                <div className="mt-4 flex items-center gap-4">
+                  <div className="relative w-28 h-20 rounded-lg overflow-hidden shadow-lg">
+                    <ImageWithFallback
+                      src={vehicleImg}
+                      alt="KWICK EV full preview"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute bottom-2 right-2 bg-red-500 text-white text-sm px-2 py-1 rounded">₹99/day</div>
+                  </div>
+
+                  <div className="relative w-20 h-12 rounded-lg overflow-hidden shadow-lg hidden sm:block">
+                    <ImageWithFallback
+                      src={`${vehicleImg}?variant=small`}
+                      alt="KWICK EV small preview"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 </div>
               </div>
             </motion.div>

@@ -53,27 +53,6 @@ export function EnhancedContactPage({
       phone: "+91 98765 43210",
       email: "noida@kwick.in",
       hours: "Mon-Sat: 9:00 AM - 7:00 PM"
-    },
-    {
-      city: "Mumbai",
-      address: "123 Electric Avenue, Andheri East, Mumbai - 400069",
-      phone: "+91 98765 43210",
-      email: "mumbai@kwick.in",
-      hours: "Mon-Sat: 9:00 AM - 7:00 PM"
-    },
-    {
-      city: "Delhi",
-      address: "456 Green Street, Connaught Place, New Delhi - 110001",
-      phone: "+91 98765 43211",
-      email: "delhi@kwick.in",
-      hours: "Mon-Sat: 9:00 AM - 7:00 PM"
-    },
-    {
-      city: "Bangalore",
-      address: "789 Tech Park, Koramangala, Bangalore - 560034",
-      phone: "+91 98765 43212",
-      email: "bangalore@kwick.in",
-      hours: "Mon-Sat: 9:00 AM - 7:00 PM"
     }
   ];
 
@@ -117,34 +96,10 @@ export function EnhancedContactPage({
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                {
-                  icon: Phone,
-                  title: "Phone Support",
-                  value: "+91 9289484832",
-                  description: "24/7 customer support for urgent matters",
-                  color: "blue"
-                },
-                {
-                  icon: Mail,
-                  title: "Email Support",
-                  value: "support@kwick.in",
-                  description: "Get detailed help via email",
-                  color: "green"
-                },
-                {
-                  icon: MessageCircle,
-                  title: "Live Chat",
-                  value: "Available on app",
-                  description: "Instant support through our mobile app",
-                  color: "purple"
-                },
-                {
-                  icon: Building,
-                  title: "Office Location",
-                  value: "Noida , Mathura",
-                  description: "Visit our offices in major Cities",
-                  color: "orange"
-                }
+                { icon: Phone, title: "Phone Support", value: "+91 9289484832", description: "24/7 customer support for urgent matters", theme: { bg: 'bg-blue-100', text: 'text-blue-600' } },
+                { icon: Mail, title: "Email Support", value: "support@kwick.in", description: "Get detailed help via email", theme: { bg: 'bg-green-100', text: 'text-green-600' } },
+                { icon: MessageCircle, title: "Live Chat", value: "Available on app", description: "Instant support through our mobile app", theme: { bg: 'bg-purple-100', text: 'text-purple-600' } },
+                { icon: Building, title: "Office Location", value: "Noida", description: "Visit our office in Noida", theme: { bg: 'bg-orange-100', text: 'text-orange-600' } }
               ].map((method, index) => (
                 <motion.div
                   key={index}
@@ -156,8 +111,8 @@ export function EnhancedContactPage({
                 >
                   <Card className="h-full hover:shadow-lg transition-shadow">
                     <CardContent className="p-6 text-center">
-                      <div className={`w-14 h-14 bg-${method.color}-100 rounded-xl flex items-center justify-center mx-auto mb-4`}>
-                        <method.icon className={`w-7 h-7 text-${method.color}-600`} />
+                      <div className={`${method.theme.bg} w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4`}>
+                        <method.icon className={`${method.theme.text} w-7 h-7`} />
                       </div>
                       <h4 className="font-semibold mb-2">{method.title}</h4>
                       <p className="text-primary font-semibold mb-2">{method.value}</p>

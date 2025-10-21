@@ -74,10 +74,18 @@ interface BlogPageProps {
 
 export function BlogPage({ onNavigate }: BlogPageProps) {
   const handleReadMore = (postId: number) => {
-    // In a real app, this would navigate to a detailed blog post page
-    // For now, we'll scroll to top and show which post was clicked
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    console.log(`Reading post ${postId}`);
+    // Build blog id in the same format used by BlogContext (e.g. BLOG001)
+    const blogId = `BLOG${String(postId).padStart(3, '0')}`;
+    // If parent provided onNavigate, use the app router convention 'blog-detail-<id>'
+    if (onNavigate) {
+      onNavigate(`blog-detail-${blogId}`);
+      // Delay the scroll a bit so the new page can render before we scroll to top
+      setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 80);
+      return;
+    }
+    // Fallback behavior
+    setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 80);
+    console.log(`Read post ${blogId}`);
   };
 
   return (

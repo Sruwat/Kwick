@@ -319,7 +319,7 @@ export function EnhancedRentVehiclePage({ onNavigate }: EnhancedRentVehiclePageP
                           </div>
                           <div className="flex justify-between mb-2">
                             <span className="text-muted-foreground">Security Deposit</span>
-                            <span>₹{selectedPlan.id === 'daily' ? 2000 : selectedPlan.id === 'weekly' ? 5000 : 10000}</span>
+                            <span>₹2000</span>
                           </div>
                         </div>
 
@@ -327,7 +327,7 @@ export function EnhancedRentVehiclePage({ onNavigate }: EnhancedRentVehiclePageP
                           <div className="flex justify-between items-center">
                             <span className="text-lg font-semibold">Total Amount</span>
                             <span className="text-2xl font-bold text-primary">
-                              ₹{selectedPlan.price + (selectedPlan.id === 'daily' ? 2000 : selectedPlan.id === 'weekly' ? 5000 : 10000)}
+                              ₹{selectedPlan.price + 2000}
                             </span>
                           </div>
                           <p className="text-xs text-muted-foreground mt-2">

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Zap, User, LogOut, LayoutDashboard, Menu, X, ChevronDown, Battery, FileText, Briefcase } from 'lucide-react';
+// Use bundled logo asset so the navbar doesn't depend on a public file
+import logo from '../assets/logo.png';
 import { Button } from './ui/button';
 import {
   DropdownMenu,
@@ -53,18 +55,15 @@ export const UnifiedNavbar: React.FC<UnifiedNavbarProps> = ({ currentPage, onNav
       >
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            {/* Logo */}
+            {/* Logo (bundled image) */}
             <button onClick={() => onNavigate('home')} className="flex items-center gap-2 group">
-              <motion.div
+              <motion.img
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.5 }}
-                className="w-10 h-10 bg-red-500 rounded-xl flex items-center justify-center"
-              >
-                <Zap className="w-6 h-6 text-white" />
-              </motion.div>
-              <span className="text-2xl text-black group-hover:text-red-500 transition-colors">
-                KWICK
-              </span>
+                src={logo}
+                alt="KWICK - EV on Rent"
+                className="h-10 object-contain"
+              />
             </button>
 
             {/* Desktop Navigation */}

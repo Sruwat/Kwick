@@ -175,44 +175,7 @@ export function NewAboutPage({ onNavigate }: NewAboutPageProps) {
         </div>
       </section>
 
-      {/* Founders Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12">
-            <h2 className="text-4xl mb-4">Meet the Founders</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">Our leadership brings decades of experience in EVs, logistics and product design.</p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card>
-              <CardContent className="p-6 flex items-center gap-4">
-                <div className="w-28 h-28 rounded-full overflow-hidden">
-                  <ImageWithFallback src={ctoImg} alt="CTO" className="w-full h-full object-cover" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold">Amit Sharma</h3>
-                  <p className="text-sm text-muted-foreground">Chief Technology Officer (CTO)</p>
-                  <p className="mt-2 text-sm">Leads product & platform engineering, focusing on scalable IoT and backend systems.</p>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="p-6 flex items-center gap-4">
-                <div className="w-28 h-28 rounded-full overflow-hidden">
-                  <ImageWithFallback src={ceoImg} alt="CEO" className="w-full h-full object-cover" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold">Priya Kapoor</h3>
-                  <p className="text-sm text-muted-foreground">Chief Executive Officer (CEO)</p>
-                  <p className="mt-2 text-sm">Oversees vision, partnerships and growth to make sustainable mobility accessible.</p>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
+      
       {/* Environmental Impact Section */}
       <section className="py-20 relative overflow-hidden">
         {/* Animated Background */}
@@ -576,21 +539,21 @@ export function NewAboutPage({ onNavigate }: NewAboutPageProps) {
                     
                     {/* Founder Image */}
                     <motion.div
-                      className="w-full h-full"
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.6 }}
+                      className="w-full h-full flex items-center justify-center p-4"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.4 }}
                     >
                       <ImageWithFallback
-                        src=""
+                        src={ctoImg}
                         alt="Rahul Kumar - Co-Founder & CTO & COO"
-                        className="w-full h-full object-cover object-center"
+                        className="max-h-44 w-auto object-contain rounded-md"
                       />
                     </motion.div>
 
                     {/* Founder Info Overlay */}
                     <div className="absolute bottom-0 left-0 right-0 p-8 z-20">
                       <Badge className="mb-3 bg-red-500 text-white border-0">Co-Founder & CTO & COO</Badge>
-                      <h3 className="text-3xl text-white mb-2">Rahul Kumar</h3>
+                      <h3 className="text-3xl text-red-500 mb-2 font-semibold">Rahul Kumar</h3>
                       
                     </div>
                   </div>
@@ -630,21 +593,21 @@ export function NewAboutPage({ onNavigate }: NewAboutPageProps) {
                     
                     {/* Founder Image */}
                     <motion.div
-                      className="w-full h-full"
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.6 }}
+                      className="w-full h-full flex items-center justify-center p-4"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.4 }}
                     >
                       <ImageWithFallback
-                        src="https://images.unsplash.com/photo-1758599543111-a7ed48b8ad2c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB3b21hbiUyMGNlbyUyMGVudHJlcHJlbmV1cnxlbnwxfHx8fDE3NjA1MTc1MTZ8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                        src={ceoImg}
                         alt="Bimlesh Tiwari - Co-Founder & CEO"
-                        className="w-full h-full object-cover object-center"
+                        className="max-h-44 w-auto object-contain rounded-md"
                       />
                     </motion.div>
 
                     {/* Founder Info Overlay */}
                     <div className="absolute bottom-0 left-0 right-0 p-8 z-20">
-                      <Badge className="mb-3 bg-blue-500 text-white border-0">Co-Founder & CE0</Badge>
-                      <h3 className="text-3xl text-white mb-2">Bimlesh Tiwari</h3>
+                      <Badge className="mb-3 bg-blue-500 text-white border-0">Co-Founder & CEO</Badge>
+                      <h3 className="text-3xl text-red-500 mb-2 font-semibold">Bimlesh Tiwari</h3>
                     </div>
                   </div>
 
