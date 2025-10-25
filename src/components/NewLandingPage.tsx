@@ -206,8 +206,8 @@ export function NewLandingPage({ onNavigate }: NewLandingPageProps) {
 
 					<div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
 						{[
-							{ icon: Users, label: "Active Riders", value: "500+", color: "bg-blue-500" },
-							{ icon: MapPin, label: "Battery Stations", value: "50+", color: "bg-green-500" },
+							{ icon: Users, label: "Active Riders", value: "100+", color: "bg-blue-500" },
+							{ icon: MapPin, label: "Battery Stations", value: "500+", color: "bg-green-500" },
 							{ icon: DollarSign, label: "Monthly Earnings", value: "₹2.5L+", color: "bg-purple-500" },
 							{ icon: Leaf, label: "Eco-Friendly", value: "100%", color: "bg-green-600" }
 						].map((stat, index) => (
